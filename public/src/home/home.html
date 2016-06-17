@@ -1,5 +1,17 @@
 <h1>Hello from Home</h1>
 <a ui-sref="profile">Go to profile</a>
 <ul>
-	<li ng-repeat="game in games">{{ game.title }}</li>
+	<li ng-repeat="game in games">
+		{{ game.title }}
+		<button ng-click="saveToFavorites( game )">
+			Save to Favorites
+		</button>
+	</li>
+</ul>
+
+<ul>
+	<h2>Favorites</h2>
+	<li ng-repeat="game in favorites">
+		{{ game.title }}
+	</li>
 </ul>

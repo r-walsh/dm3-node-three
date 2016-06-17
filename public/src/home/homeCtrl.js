@@ -2,6 +2,7 @@ angular.module( `nodeThree` )
 .controller( `homeCtrl`, function( $scope, gameService ) {
 
 	$scope.games = [];
+	$scope.favorites = [];
 
 	$scope.getGames = () => {
 		gameService.getGames()
@@ -10,5 +11,17 @@ angular.module( `nodeThree` )
 			} );
 	}
 	$scope.getGames();
+
+	$scope.saveToFavorites = game => {
+		gameService.favoriteGame( game );
+	}
+
+	$scope.getFavorites = () => {
+		gameService.getFavorites()
+			.then( ( favorites ) => {
+				$scope.favorites = favorites.data;
+			} );
+	}
+	$scope.getFavorites();
 
 } );
